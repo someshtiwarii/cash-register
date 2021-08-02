@@ -24,7 +24,7 @@ nextButton.addEventListener("click", function errorHandler() {
 
 
 checkButton.addEventListener("click", function(){
-    if(billAmount.value<=cashGiven.value){
+    if((cashGiven.value) > (billAmount.value)){
         changeReturn.style.display="block";
         const returnAmount = (cashGiven.value-billAmount.value);
         calculateChange(returnAmount);
