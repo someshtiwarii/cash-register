@@ -1,26 +1,41 @@
 const billAmount = document.querySelector(".bill-amount");
 const cashGiven = document.querySelector(".cash-given");
+const nextButton = document.querySelector(".next-button");
 const checkButton = document.querySelector(".check-button");
 const errorMessage = document.querySelector(".error-message");
 const noOfNotes = document.querySelectorAll(".no-of-notes");
+const secondDisplay = document.querySelector(".second");
+const changeReturn = document.querySelector(".change-Return");
 
 const notes=[2000,500,100,20,10,5,1];
 
-checkButton.addEventListener("click", function errorHandler() {
+nextButton.addEventListener("click", function errorHandler() {
+
     if (billAmount.value >0){
-        if(billAmount.value<cashGiven.value){
-            const returnAmount = cashGiven.value-billAmount.value;
-            calculateChange(returnAmount);
-        }
-        else{
-            showMessage("atleast pay the bill")
-        }
+        nextButton.style.display = "none"; 
+        secondDisplay.style.display = "block";
     }
     else{
-        showMessage("enter valid bill amount")
-    }
+        showMessage("enter valid bill amount");
+      }
     
+}
+);
+
+
+checkButton.addEventListener("click", function(){
+    if(billAmount.value<cashGiven.value){
+        changeReturn.style.display="block";
+        const returnAmount = cashGiven.value-billAmount.value;
+        calculateChange(returnAmount);
+        
+    }
+    else{
+        showMessage("atleast pay the bill")
+    }
 });
+
+
 
 function calculateChange(returnAmount){ 
         
