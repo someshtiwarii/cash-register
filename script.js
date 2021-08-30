@@ -11,7 +11,7 @@ const notes=[2000,500,100,20,10,5,1];
 
 nextButton.addEventListener("click", function errorHandler() {
 
-    if (billAmount.value >0){
+    if (billAmount.value > 0){
         nextButton.style.display = "none"; 
         secondDisplay.style.display = "block";
     }
@@ -24,15 +24,17 @@ nextButton.addEventListener("click", function errorHandler() {
 
 
 checkButton.addEventListener("click", function(){
-    if((cashGiven.value) > (billAmount.value)){
+    if(Number(cashGiven.value) > Number(billAmount.value)){
         changeReturn.style.display="block";
-        const returnAmount = (cashGiven.value-billAmount.value);
+        const returnAmount = Number(cashGiven.value-billAmount.value);
         calculateChange(returnAmount);
+       
         
     }
     else{
         showMessage("atleast pay the bill")
     }
+ 
 });
 
 
